@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="3"
+    android:rowCount="2"
+    android:id="@+id/button_control">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rightBtn"
+        android:background="@drawable/monotone_arrow_next_right"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="35dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leftBtn"
+        android:background="@drawable/monotone_arrow_next_left"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="35dp" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reverse"
+        android:id="@+id/reverse"
+        android:layout_below="@+id/rightBtn"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/attention"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/leftBtn"
+        android:layout_alignRight="@+id/reverse"
+        android:layout_alignEnd="@+id/reverse" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/meditation"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/leftBtn"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/blink_strength"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/attention"
+        android:layout_above="@+id/rightBtn"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/meditatiom"
+        android:layout_below="@+id/attention"
+        android:layout_alignLeft="@+id/attention"
+        android:layout_alignStart="@+id/attention" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/blink_strength"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignLeft="@+id/meditatiom"
+        android:layout_alignStart="@+id/meditatiom" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/blink"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sensitive"
+        android:layout_alignBottom="@+id/reverse"
+        android:layout_alignRight="@+id/rightBtn"
+        android:layout_alignEnd="@+id/rightBtn"
+        android:layout_alignLeft="@+id/rightBtn"
+        android:layout_alignStart="@+id/rightBtn"
+        android:max="100"
+        android:progress="0"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/sensitivy"
+        android:id="@+id/textView7"
+        android:layout_above="@+id/sensitive"
+        android:layout_alignLeft="@+id/rightBtn"
+        android:layout_alignStart="@+id/rightBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/reverse"
+        android:id="@+id/textView8"
+        android:layout_above="@+id/reverse"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

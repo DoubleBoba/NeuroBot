@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">NeuroBot</string>
+
+    <string name="start">Начать!</string>
+    <string name="options">Настройки</string>
+    <string name="exit">Выход</string>
+    <string name="discover">Начать поиск устройств</string>
+    <string name="only_mindwaves">Показывать тоько MindWave`ы</string>
+    <string name="device_name">Имя: </string>
+    <string name="device_mac">MAC: </string>
+    <string name="connect">✓</string>
+    <string name="status_searching">Выполняется поиск...</string>
+    <string name="status_stop_searching">Поиск остановлен</string>
+    <string name="choose_mindwave">Выберите ваш mindwave:</string>
+    <string name="action_settings">Settings</string>
+    <string name="get_next_device">Теперь выберите рообота.</string>
+    <string name="reverse">Задний ход</string>
+    <string name="attention">Сосредоточенность: </string>
+    <string name="meditation">Медитация: </string>
+    <string name="blink_strength">Сила моргания: </string>
+    <string name="sensitivy">Чувствительность: </string>
+    <string name="bad_signal">Плохой сигнал с MindWave</string>
+</resources>
