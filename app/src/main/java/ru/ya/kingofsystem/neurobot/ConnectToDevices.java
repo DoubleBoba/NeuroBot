@@ -36,8 +36,6 @@ public class ConnectToDevices extends Activity implements FoundedDevice.OnDevice
 
         searchStatus = (TextView) findViewById(R.id.searchStatus);
 
-
-
         IntentFilter discoverFilter = new IntentFilter();
         discoverFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
         discoverFilter.addAction(BluetoothDevice.ACTION_FOUND);
@@ -76,7 +74,6 @@ public class ConnectToDevices extends Activity implements FoundedDevice.OnDevice
             mindWaveSelected = true;
             Toast.makeText(getApplicationContext(), getString(R.string.get_next_device),
                     Toast.LENGTH_LONG).show();
-        } else {
             Common.setRobot(btAdapter.getRemoteDevice(mac));
             btAdapter.cancelDiscovery();
             Intent intent = new Intent(ConnectToDevices.this, ButtonControl.class);

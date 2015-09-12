@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-2ff8a1e9195f85f84a9408f55e22e7a92227f9f6.jar" />
-    </item>
-    <item
-        jar="/home/tamtaradam/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-52fac03ffdbe76f28a0d26a17423e3b211f2faf6.jar" />
-    </item>
-    <item
-        jar="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/pre-dexed/debug/classes-17080f47b67ed431acab2eed13b815e618f18dc2.jar" />
-    </item>
-    <item
-        jar="/home/tamtaradam/AndroidStudioProjects/NeuroBot/ThinkGear/ThinkGear.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="b4f0f0a355dcc5315e5bef25b775beaa52b2d208">
-        <dex dex="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/pre-dexed/debug/ThinkGear-e2170d0d99ef81400a728019cf260a18f0846d0a.jar" />
-    </item>
-    <item
-        jar="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jar="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/home/tamtaradam/AndroidStudioProjects/NeuroBot/app/build/intermediates/pre-dexed/debug/classes-0511b856859086a21fb301a932ebf25ee63755a2.jar" />
+        <dex dex="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/pre-dexed/debug/classes-bac74aeb07458a0eef1b0a6cc84309bbc2b8e49d.jar" />
+    </item>
+    <item
+        jar="/home/tamtaradam/programms/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-4208ce5f741db3c7496856aa23af071a2b6831b2.jar" />
+    </item>
+    <item
+        jar="/home/tamtaradam/workspace/NeuroBot/ThinkGear/ThinkGear.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="b4f0f0a355dcc5315e5bef25b775beaa52b2d208">
+        <dex dex="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/pre-dexed/debug/ThinkGear-f86d3fed2dc5acf7fdfe20501efe40e9903dc53a.jar" />
+    </item>
+    <item
+        jar="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-9218c4ed21482ceee57e1d1dae38df55b58a891f.jar" />
+    </item>
+    <item
+        jar="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="/home/tamtaradam/workspace/NeuroBot/app/build/intermediates/pre-dexed/debug/classes-227ce24992cce7455398e4c4ef23f27f019bdcea.jar" />
     </item>
 
 </items>

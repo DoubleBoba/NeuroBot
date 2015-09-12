@@ -19,7 +19,6 @@ import android.widget.ToggleButton;
 
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -42,7 +41,8 @@ public class ButtonControl extends Activity {
     private ToggleButton reverseBtn;
     private BluetoothDevice robot;
     private boolean nowLeft=false, nowRight=false;
-    private Thread t;
+    private Thread robotConnectorThread;
+    private MindWaveDataReceiver mindWaveDataReceiver;
     private RobotConnector robotConnector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class ButtonControl extends Activity {
         setContentView(R.layout.button_control);
         btAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        robotConnector = new RobotConnector();
-        mindWave = new MindWave(btAdapter, Common.getMindWave(), robotConnector);
+        mindWaveDataReceiver = new MindWaveDataReceiver();
+        mindWave = new MindWave(btAdapter, Common.getMindWave(), mindWaveDataReceiver);
 
         senseBar = (SeekBar) findViewById(R.id.sensitive);
         leftBtn = (ImageButton) findViewById(R.id.leftBtn);
@@ -63,9 +63,9 @@ public class ButtonControl extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN)
-                    robotConnector.turn(LEFT);
+                    mindWaveDataReceiver.turn(LEFT);
                 else if (event.getAction() == MotionEvent.ACTION_UP)
-                    robotConnector.turn(DIRECT);
+                    mindWaveDataReceiver.turn(DIRECT);
                 return true;
             }
         });
@@ -74,9 +74,9 @@ public class ButtonControl extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN)
-                    robotConnector.turn(RIGHT);
+                    mindWaveDataReceiver.turn(RIGHT);
                 else if (event.getAction() == MotionEvent.ACTION_UP)
-                    robotConnector.turn(DIRECT);
+                    mindWaveDataReceiver.turn(DIRECT);
                 return false;
             }
         });
@@ -84,11 +84,16 @@ public class ButtonControl extends Activity {
         reverseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                robotConnector.reverse();
+                mindWaveDataReceiver.reverse();
             }
         });
-        t = new Thread(robotConnector);
+        robotConnector = new RobotConnector();
+        robotConnectorThread = new Thread(robotConnector);
+        robotConnectorThread.setDaemon(true); // Чтобы поток сдох, когда дохнет вся программа
+        robotConnectorThread.start();
         mindWave.connect();
+
+
     }
 
 
@@ -114,11 +119,9 @@ public class ButtonControl extends Activity {
         return super.onOptionsItemSelected(item);
     }
     private TextView attention, meditation, blink;
-    private class RobotConnector implements MindWaveListener, Runnable {
-        private OutputStream btOut;
-        private BluetoothSocket btSocket;
+    private class MindWaveDataReceiver implements MindWaveListener{
         private RadioButton blinkIndicator;
-        public RobotConnector() {
+        public MindWaveDataReceiver() {
             attention = (TextView) findViewById(R.id.attention);
             meditation = (TextView) findViewById(R.id.meditatiom);
             blink = (TextView) findViewById(R.id.blink_strength);
@@ -128,13 +131,7 @@ public class ButtonControl extends Activity {
 
         @Override
         public void onConnect() {
-            try {
-                btSocket = robot.createRfcommSocketToServiceRecord(MY_UUID);
-            } catch (IOException e) {
-                Log.d(MyTag, "PIZDEC, BLYAT!");
-                e.printStackTrace();
-            }
-            t.start();
+            Toast.makeText(getApplicationContext(), "Mindwave подключен", Toast.LENGTH_SHORT);
         }
 
         @Override
@@ -154,7 +151,7 @@ public class ButtonControl extends Activity {
         public void attention(int strength) {
             attention.setText("" + strength);
             strength = computePower(strength);
-            sendData("a" + strength); // "a=25\n"
+            robotConnector.sendData("a" + strength); // "a=25\n"
 
         }
 
@@ -162,13 +159,13 @@ public class ButtonControl extends Activity {
         public void meditation(int strength) {
             meditation.setText("" + strength);
             strength = computePower(strength);
-            sendData("m" + strength);
+            robotConnector.sendData("m" + strength);
 
         }
         private Timer blinktimer;
         @Override
         public void blink(int strength) {
-            sendData("b");
+            robotConnector.sendData("b");
             blink.setText("" + strength);
             blinkIndicator.setChecked(true);
             try {
@@ -181,39 +178,17 @@ public class ButtonControl extends Activity {
         }
 
         public void turn(int direction) {
-            sendData("d" + direction);
+            robotConnector.sendData("d" + direction);
         }
 
         public void reverse() {
-            sendData("r");
-        }
-
-        private void sendData(String s) {
-            try {
-                btOut.write((s + "n").getBytes());
-            } catch (IOException | NullPointerException e) {
-                Log.d(MyTag, "PIZDEZC, HULI TI TAK DALEKO!&!7717!??");
-                e.printStackTrace();
-            }
+            robotConnector.sendData("r");
         }
 
         @Override
         public void onBadSignal() {
 //            Toast.makeText(getApplicationContext(), getString(R.string.bad_signal),
 //                    Toast.LENGTH_LONG).show();
-
-        }
-
-        @Override
-        public void run() {
-
-            try {
-                btSocket.connect();
-                btOut = btSocket.getOutputStream();
-                btSocket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
         }
 
@@ -228,6 +203,6 @@ public class ButtonControl extends Activity {
                     }
                 });
             }
-        };
+        }
     }
 }
