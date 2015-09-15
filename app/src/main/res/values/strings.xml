@@ -20,4 +20,5 @@
     <string name="blink_strength">Сила моргания: </string>
     <string name="sensitivy">Чувствительность: </string>
     <string name="bad_signal">Плохой сигнал с MindWave</string>
+    <string name="head_ip">IP сервера: </string>
 </resources>

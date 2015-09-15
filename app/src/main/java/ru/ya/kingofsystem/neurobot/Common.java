@@ -9,6 +9,8 @@ public class Common {
     private Common(){}
     private static BluetoothDevice mindWave, robot;
 
+    public static CharSequence headHost;
+
     public static void setMindWave(BluetoothDevice mindWave) {
         Common.mindWave = mindWave;
     }

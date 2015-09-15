@@ -51,9 +51,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/textView3"
         android:layout_alignParentBottom="true"
-        android:fillViewport="false">
+        android:fillViewport="false"
+        android:layout_below="@+id/ip_addres">
 
         <LinearLayout
             android:orientation="vertical"
@@ -64,5 +64,26 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ip_addres"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/btnDiscover"
+        android:layout_alignStart="@+id/btnDiscover"
+        android:layout_alignRight="@+id/btnDiscover"
+        android:layout_alignEnd="@+id/btnDiscover" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/head_ip"
+        android:id="@+id/textView9"
+        android:layout_alignBaseline="@+id/ip_addres"
+        android:layout_alignBottom="@+id/ip_addres"
+        android:layout_toLeftOf="@+id/ip_addres"
+        android:layout_toStartOf="@+id/ip_addres" />
 
 </RelativeLayout>

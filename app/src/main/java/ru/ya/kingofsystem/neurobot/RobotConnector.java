@@ -15,18 +15,18 @@ import java.net.Socket;
  * Валька уебал все блютузники и теперь коннектимся через сеть
  */
 public class RobotConnector implements Runnable{
-    private String host;
+    private CharSequence host;
     private int port;
     private Socket socket;
     private DataOutput out;
     private DataInput in;
-    public RobotConnector(String host, int port) {
+    public RobotConnector(CharSequence host, int port) {
         this.host = host;
         this.port = port;
     }
 
     public RobotConnector() {
-        this("192.168.0.177", 22288); // Я в депрессии и не буду делать автоматический поиск :(
+        this(Common.headHost, 22288); // Я в депрессии и не буду делать автоматический поиск :(
     }
 
     @Override
@@ -34,7 +34,7 @@ public class RobotConnector implements Runnable{
         // FIXME: 06.09.15  Я пока не придумал, что арда нaм присылает, хотя я вру
         try {
             socket = new Socket();
-            socket.connect(new InetSocketAddress(host, port));
+            socket.connect(new InetSocketAddress(host.toString(), port));
             out = new DataOutputStream(socket.getOutputStream());
             in = new DataInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -45,7 +45,7 @@ public class RobotConnector implements Runnable{
 
     public void sendData(String str) {
         try {
-            out.writeChars(str+'\n');
+            out.writeChars(str+'n');
             Log.d("RobotConnector", str);
         } catch (IOException | NullPointerException e) {
             e.printStackTrace();

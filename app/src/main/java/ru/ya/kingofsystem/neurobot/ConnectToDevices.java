@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * Created by tamtaradam on 27.08.15.
@@ -75,6 +76,7 @@ public class ConnectToDevices extends Activity implements FoundedDevice.OnDevice
             Toast.makeText(getApplicationContext(), getString(R.string.get_next_device),
                     Toast.LENGTH_LONG).show();
             Common.setRobot(btAdapter.getRemoteDevice(mac));
+            Common.headHost = ((TextView) findViewById(R.id.ip_addres)).getText();
             btAdapter.cancelDiscovery();
             Intent intent = new Intent(ConnectToDevices.this, ButtonControl.class);
             startActivity(intent);
